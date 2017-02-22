@@ -12,13 +12,12 @@ context = zmq.Conext()
 
 class Renderer:
     
-    def __init__(self, channel, video=True, audio=True, chat=True, flush=True):
+    def __init__(self, channel, video=True, audio=True, chat=True):
         self.channel = channel
         
         self.video = video
         self.audio = audio
         self.chat  = chat
-        self.flush = flush
         
         self.port, port = port, port + 10
     
@@ -70,7 +69,7 @@ class Renderer:
             
             self.chat_frame = numpy.zeros((360,100,3))
     
-    def __iter__(self, flush=True):
+    def __iter__(self):
         results = []
         
         while True:
